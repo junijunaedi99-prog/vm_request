@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Request VM Toko</title>
+  <title>Portal Request & Monitoring VM</title>
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-    iframe { width: 100%; height: 100%; border: none; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #0f172a; }
+    iframe { width: 100%; height: 100%; border: none; display: block; }
   </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbzb5nWVZIqhlycem0eDQnj9zQJXoy6V4EuSAblfYwvWFCm06ygiSyggfO0hISRh8bjDSA/exec"></iframe>
+  <iframe id="appFrame" allow="camera; microphone"></iframe>
+
+  <script>
+    // Tempel link Web App (/exec) Apps Script lu di bawah ini (tanpa /u/2/)
+    var baseGasUrl = "https://script.google.com/macros/s/AKfycbzb5nWVZIqhlycem0eDQnj9zQJXoy6V4EuSAblfYwvWFCm06ygiSyggfO0hISRh8bjDSA/exec";
+    
+    // Tangkap parameter ?action=...&id=... jika dibuka dari klik tombol Email
+    var queryParams = window.location.search;
+    document.getElementById("appFrame").src = queryParams ? (baseGasUrl + queryParams) : baseGasUrl;
+  </script>
 </body>
 </html>
